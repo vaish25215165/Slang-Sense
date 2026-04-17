@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SlangChatbot } from '@/components/slang-chatbot'
 import { ThemeProvider } from '@/components/theme-provider'
+import { EmojiCursorProvider } from '@/components/emoji-cursor-provider'
 import './globals.css'
 import './styles.css'
 
@@ -46,8 +47,10 @@ export default function RootLayout({
           themes={["light", "dark", "pink"]}
           disableTransitionOnChange
         >
-          {children}
-          <SlangChatbot />
+          <EmojiCursorProvider>
+            {children}
+            <SlangChatbot />
+          </EmojiCursorProvider>
         </ThemeProvider>
         <Analytics />
       </body>
